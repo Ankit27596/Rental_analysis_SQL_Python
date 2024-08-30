@@ -87,6 +87,7 @@ def top_movies(data):
 
 
 st.sidebar.title('Rental Analysis')
+st.sidebar.write('### To view complete code of deployment, visit the github repo: https://github.com/Ankit27596/Rental_analysis_SQL_Python')
 selected = st.sidebar.selectbox('Select one', ['Database structure', 'Customer revenue', 'Top 5 cities with most customers',
                                                'Top rented movies'])
 

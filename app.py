@@ -32,7 +32,7 @@ def revenue_per_customer(data):
     (PARTITION BY c.customer_id 
     ORDER BY payment_date 
     ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)
-    AS "Amount" 
+    AS "Total Amount" 
     FROM customer c JOIN payment p 
     ON c.customer_id=p.customer_id 
     ORDER BY c.customer_id"""
@@ -46,7 +46,8 @@ def revenue_per_customer(data):
 
     id = int(str(selected).split(':')[0])
     desired = cust_rev.loc[cust_rev['ID']==id]
-    total = cust_rev.loc[cust_rev['ID']==id]['Amount'].sum()
+    l = len(desired)
+    total = desired['Total Amount'][desired.index[l-1]]
 
     cl1, cl2 = st.columns(2)
 
